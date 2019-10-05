@@ -150,4 +150,11 @@
         </plugins>
     </build>
 
+	<developers>
+		<developer>
+			<name>Gabriel Guarido</name>
+			<email>gabrielguarido.oliveira@gmail.com</email>
+		</developer>
+	</developers>
+
 </project>
