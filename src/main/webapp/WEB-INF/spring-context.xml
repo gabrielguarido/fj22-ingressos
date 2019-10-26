@@ -20,6 +20,7 @@
 	<context:component-scan base-package="br.com.caelum.ingresso" />
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
+	<mvc:annotation-driven conversion-service="conversionService"/>
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
@@ -46,7 +47,14 @@
 	</bean>  
 	
 	<tx:annotation-driven/>
-
+	
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<set>
+				<bean class="br.com.caelum.ingresso.converter.YearMonthConverter"/>
+			</set>
+		</property>
+	</bean>
 
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
